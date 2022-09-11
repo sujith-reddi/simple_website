@@ -1,0 +1,114 @@
+:root {
+  --main-color: #c59d5f;
+  --bg-color: #f1f5f8;
+  --txt-color: #617d98;
+  --title-color: #102a42;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color:	var(--bg-color);
+}
+.title {
+  color: var(--title-color);
+  text-align: center;
+  letter-spacing: 3px;
+  margin-top: 4%;
+  font-size: 35px;
+  padding: 10px;
+}
+hr {
+  width: 100px;
+  margin: auto;
+  height: 5px;
+  background-color: var(--main-color);
+  outline: none;
+  border: none;
+}
+#filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 12px;
+  margin-bottom: 30px;
+}
+.filter-element {
+  background-color: transparent;
+  color: var(--main-color);
+  border: 1px outset var(--main-color);
+  padding: 8px 15px;
+  border-width: 3px;
+  border-radius: 10px;
+  margin: 30px 18px 0 0;
+  cursor: pointer;
+  font-size: 17px;
+}
+.filter-element:hover {
+  color: var(--bg-color);
+  background-color: var(--main-color);
+}
+#menu-container {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  gap: 2rem 2rem;
+  justify-items: center;
+}
+.menu-item {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+  display: flex;
+}
+.menu-item.hide-menu {
+  display: none;
+}
+.item-img {
+  width: 200px;
+  height: 150px;
+  border: 5px solid var(--main-color);
+  border-radius: 5%;
+  object-fit: cover;
+}
+.right-div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 20px;
+}
+.item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  border-bottom: 1px dotted	var(--txt-color);
+  padding-bottom: 5px;
+}
+.item-header p {
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+.item-title {
+  text-transform: capitalize;
+  color: var(--title-color);
+}
+.item-price {
+  color: var(--main-color);
+}
+.item-des {
+  margin-top: 15px;
+  color: var(--txt-color);
+  line-height: 1.5;
+  font-size: 14px;
+}
+@media screen and (min-width: 1200px) {
+  #menu-container {
+    width: 95vw;
+    grid-template-columns: 1fr 1fr;
+  }
+}
