@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Counter</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		h3 {
+			text-align: center;
+			font-size: 40px;
+			margin-top: 40px;
+		}
+		h1 {
+			text-align: center;
+			font-size: 100px;
+		}
+		div {
+			text-align: center;
+			margin-top: 20px;
+		}
+		button {
+			width: 120px;
+			height: 50px;
+			font-size: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		let c = 0;
+		function solve() {
+			if (c < 0) {
+				document.getElementById("counter").style.color = "red";
+			} else if (c == 0) {
+				document.getElementById("counter").style.color = "black";
+			}
+			else {
+				document.getElementById("counter").style.color = "green";
+			}
+		}
+		// DECREMENT
+		function dec() {
+			c -= 1;
+			document.getElementById("counter").innerText = c;
+			solve()
+		}
+		// INCREMENT
+		function inc() {
+			c += 1;
+			document.getElementById("counter").innerText = c;
+			solve()
+		}
+		// RESET
+		function reset() {
+			c = 0;
+			document.getElementById("counter").innerText = c;
+			document.getElementById("counter").style.color = "black";
+		}
+	</script>
+</head>
+<body>
+	<h3>Counter</h3>
+	<h1 id="counter">0</h1>
+	<div>
+		<button onclick="dec()" id="d">Decrease</button>
+		<button onclick="reset()">Reset</button>
+		<button onclick="inc()" id="i">Increase</button>
+	</div>
+</body>
+</html>
