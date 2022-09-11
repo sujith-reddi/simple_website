@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FAQ</title>
+	<style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 150px;
+    }
+    .faq-container {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .faq {
+      width: 700px;
+      padding: 20px;
+      outline: none;
+      box-shadow: 0 0 8px 1px #888888;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      background-color: #f0f0f080;
+      font-size: 20px;
+    }
+    .faq-title {
+      display: inline-block;
+      left: 0;
+    }
+    .faq-ans {
+      display: none;
+    }
+    .show-ans .faq-ans {
+      display: block;
+      border-top: 1px dotted gray;
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+    .show-ans .add {
+      display: none;
+    }
+    .sub {
+      display: none;
+    }
+    .show-ans .sub {
+      display: inline;
+    }
+    button {
+      background-color: transparent;
+      border: 0;
+      font-size: 20px;
+      float: right;
+      margin-right: 10px;
+      padding: 4px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>FAQs</h2>
+  <div class="faq-container"></div>
+  <script>
+    const faqs = [
+      {
+        question: 'Do You Accept All Major Credit Cards?',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est dolore illo dolores quia nemo doloribus quaerat, magni numquam repellat reprehenderit.',
+      },
+      {
+        question: 'Do You Support Local Farmers?',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est dolore illo dolores quia nemo doloribus quaerat, magni numquam repellat reprehenderit.',
+      },
+      {
+        question: 'Do You Use Organic Ingredients?',
+        answer: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est dolore illo dolores quia nemo doloribus quaerat, magni numquam repellat reprehenderit.',
+      },
+    ];
+    window.addEventListener('DOMContentLoaded', () => {
+      const faqContainer = document.querySelector('.faq-container');
+      faqs.forEach((element) => {
+        const faq = document.createElement('div');
+        faq.setAttribute('class','faq');
+        const faqTitle = document.createElement('p');    
+        faqTitle.setAttribute('class','faq-title');
+        const titleText = document.createTextNode(element.question);
+        faqTitle.appendChild(titleText);
+        faq.appendChild(faqTitle);
+
+        const expandBtn = document.createElement('button');
+        expandBtn.setAttribute('class','expand-btn');
+        const more = document.createElement('span');
+        more.setAttribute('class','add');
+        const moreVal = document.createTextNode("+");
+        more.appendChild(moreVal);
+        expandBtn.appendChild(more);
+        const less = document.createElement('span');
+        less.setAttribute('class','sub');
+        const lessVal = document.createTextNode("-");
+        less.appendChild(lessVal);
+        expandBtn.appendChild(less);
+        faq.appendChild(expandBtn);
+
+        const faqAns = document.createElement('p');    
+        faqAns.setAttribute('class','faq-ans');
+        const ansText = document.createTextNode(element.answer);
+        faqAns.appendChild(ansText);
+        faq.appendChild(faqAns);
+
+        faqContainer.appendChild(faq);
+      });
+      const questions = document.querySelectorAll(".faq");
+      questions.forEach(function (qtn) {
+        const btn = qtn.querySelector(".expand-btn");
+        btn.addEventListener("click", function () {
+          questions.forEach(function (ele) {
+            if (ele !== qtn) {
+              ele.classList.remove("show-ans");
+            }
+          });
+          qtn.classList.toggle("show-ans");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
